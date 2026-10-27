@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "infinitiumcore",
+	"version": "${version}",
+	"name": "InfinitiumCore",
+	"description": "Companion do datapack Infinitium: painel de atributos, guia e atalhos de HUD. O datapack continua a ser o cerebro - o mod apenas dispara os mesmos triggers e scores que ele ja consome.",
+	"authors": [
+		"azard_infinitium3d"
+	],
+	"contact": {
+		"sources": "https://github.com/denonexus-coder/InfinitiumXNexus"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/infinitiumcore/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "com.azard_infinitium3d.Infinitiumcore",
+				"adapter": "kotlin"
+			}
+		],
+		"client": [
+			{
+				"value": "com.azard_infinitium3d.client.InfinitiumcoreClient",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"infinitiumcore.mixins.json",
+		{
+			"config": "infinitiumcore.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
+	}
+}
