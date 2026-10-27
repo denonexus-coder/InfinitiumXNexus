@@ -1,6 +1,7 @@
 package com.azard_infinitium3d.server
 
 import net.minecraft.server.MinecraftServer
+import net.minecraft.world.scores.Objective
 import net.minecraft.world.scores.Scoreboard
 
 /**
@@ -33,6 +34,9 @@ object ScoreIO {
 	/** O datapack Infinitium esta ativo? (inf.pts so existe depois do setup) */
 	fun hasPack(server: MinecraftServer): Boolean =
 		scoreboard(server).getObjective(PTS) != null
+
+	/** Objective do datapack, ou null se nao existir. */
+	fun objective(board: Scoreboard, name: String): Objective? = board.getObjective(name)
 
 	/** Le um score do jogador; 0 se o objective ou o score nao existirem. */
 	fun read(board: Scoreboard, owner: String, objective: String): Int {
